@@ -1,7 +1,107 @@
 /* some colors you may find useful:
-  #115ff4
-  #060ce9
-  #28a200
+  #115ff4 main background color
+  #060ce9 for tds
+  #28a200 answer showing
   #8d2ab5
   #74119c
 */
+
+h1 {
+  color: white;
+  font-weight: 1100;
+  font-size: 5rem;
+}
+
+.game {
+  margin-top: 5%;
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #115ff4;
+}
+
+.head td {
+  inline-size: 150px;
+  height: 50px;
+}
+
+table {
+  margin-top: 5%;
+}
+
+table, th, td {
+  padding: 12px;
+  padding: 12px;
+  text-align: left;
+  background: #060ce9;
+  color: white;
+  overflow-wrap: break-word;
+  border: 1px solid white;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+tbody td {
+  height: 100px;
+}
+
+.showingAnswer {
+  background: #28a200;
+}
+
+#startGame {
+  --c: #fff;
+  /* text color */
+  background: linear-gradient(90deg, #0000 33%, #fff5, #0000 67%) var(--_p,100%)/300% no-repeat,
+    #004dff;
+  /* background color */
+  color: #0000;
+  border: none;
+  transform: perspective(500px) rotateY(calc(20deg*var(--_i,-1)));
+  text-shadow: calc(var(--_i,-1)* 0.08em) -.01em 0   var(--c),
+    calc(var(--_i,-1)*-0.08em)  .01em 2px #0004;
+  outline-offset: .1em;
+  transition: 0.3s;
+  border: solid 1px white;
+}
+
+#startGame:hover,
+#startGame:focus-visible {
+  --_p: 0%;
+  --_i: 1;
+}
+
+#startGame:active {
+  text-shadow: none;
+  color: var(--c);
+  box-shadow: inset 0 0 9e9q #0005;
+  transition: 0s;
+}
+
+#startGame {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0;
+  cursor: pointer;
+  padding: .1em .3em;
+}
