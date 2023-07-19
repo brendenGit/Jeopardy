@@ -8,4 +8,5 @@ The game leverages an object orientied design model with each game of Jeopardy b
 * HTML
 * CSS
 * JavaScript
-* API calls to http://jservice.io/
+* API calls to: http://jservice.io/
+* Javascript utility library: https://lodash.com/
