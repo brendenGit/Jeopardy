@@ -13,9 +13,15 @@ class Jeopardy {
 
     // Returns array of category ids
     async getCategoryIds() {
-        const response = await axios.get('http://jservice.io/api/categories', { params: { count: 100 } });
-        this.catIds = _.sampleSize(response.data.filter((category) => category.clues_count >= 6), 6);
-        this.catIds = this.catIds.map((cateogry) => ({ id: cateogry.id }));
+        try {
+            const response = await axios.get('http://jservice.io/api/categories', { params: { count: 100 } });
+            this.catIds = _.sampleSize(response.data.filter((category) => category.clues_count >= 6), 6);
+            this.catIds = this.catIds.map((cateogry) => ({ id: cateogry.id }));
+        } catch (error) {
+            alert("Sorry, can't load right now. Please try again in 30 seconds.")
+            startGameBtn.innerText = 'Start New Game';
+            gameContainer.classList.remove('game');
+        }
     }
 
     /** Return object with data about a category:
@@ -30,10 +36,16 @@ class Jeopardy {
      *   ]
      */
     async getCategory(catId) {
-        const response = await axios.get('http://jservice.io/api/category?', { params: { id: catId } });
-        const clues = _.sampleSize(response.data.clues.map(({ question, answer }) => ({ question, answer, showing: null })), 5);
-        const data = { title: response.data.title, clues };
-        this.categories.push(data);
+        try {
+            const response = await axios.get('http://jservice.io/api/category?', { params: { id: catId } });
+            const clues = _.sampleSize(response.data.clues.map(({ question, answer }) => ({ question, answer, showing: null })), 5);
+            const data = { title: response.data.title, clues };
+            this.categories.push(data);
+        } catch (error) {
+            alert("Sorry, can't load right now. Please try again in 30 seconds.")
+            startGameBtn.innerText = 'Start New Game';
+            gameContainer.classList.remove('game');
+        }
     }
 
     /** Fill the HTML table#jeopardy with the categories & cells for questions.

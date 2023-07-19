@@ -6,10 +6,10 @@
   #74119c
 */
 
-h1 {
-  color: white;
-  font-weight: 1100;
-  font-size: 5rem;
+
+img {
+  max-width: 25%;
+  margin: 1%;
 }
 
 .game {
@@ -42,23 +42,22 @@ body {
 
 .head td {
   inline-size: 150px;
-  height: 50px;
+  height: 60px;
 }
 
 table {
   margin-top: 5%;
+  text-shadow: 1px 1px 2px black;
 }
 
 table, th, td {
-  padding: 12px;
-  padding: 12px;
-  text-align: left;
+  text-align: center;
   background: #060ce9;
   color: white;
   overflow-wrap: break-word;
   border: 1px solid white;
   border-collapse: collapse;
-  text-align: center;
+  font-weight: 1250;
 }
 
 tbody td {
@@ -72,14 +71,14 @@ tbody td {
 #startGame {
   --c: #fff;
   /* text color */
-  background: linear-gradient(90deg, #0000 33%, #fff5, #0000 67%) var(--_p,100%)/300% no-repeat,
+  background: linear-gradient(90deg, #0000 33%, #fff5, #0000 67%) var(--_p, 100%)/300% no-repeat,
     #004dff;
   /* background color */
   color: #0000;
   border: none;
-  transform: perspective(500px) rotateY(calc(20deg*var(--_i,-1)));
-  text-shadow: calc(var(--_i,-1)* 0.08em) -.01em 0   var(--c),
-    calc(var(--_i,-1)*-0.08em)  .01em 2px #0004;
+  transform: perspective(500px) rotateY(calc(20deg*var(--_i, -1)));
+  text-shadow: calc(var(--_i, -1)* 0.08em) -.01em 0 var(--c),
+    calc(var(--_i, -1)*-0.08em) .01em 2px #0004;
   outline-offset: .1em;
   transition: 0.3s;
   border: solid 1px white;
